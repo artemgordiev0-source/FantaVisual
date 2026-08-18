@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FANTA VISUAL</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:#080808;color:#fff;line-height:1.5}
+a{text-decoration:none;color:inherit}.nav{position:fixed;top:0;width:100%;z-index:9;background:#080808cc;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff0d}
+.navin{max-width:1180px;margin:auto;height:68px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:2px}.logo span{color:#555}
+.links{display:flex;gap:25px;align-items:center}.links a{font-size:13px;color:#888}.links a:hover{color:#fff}
+.btn{display:inline-block;padding:13px 21px;border-radius:11px;border:1px solid #ffffff14;background:#ffffff08;color:#fff;cursor:pointer}
+.primary{background:#fff;color:#000;font-weight:800}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:110px 20px 70px}
+.hero>div{max-width:900px}.badge{display:inline-block;border:1px solid #ffffff12;border-radius:30px;padding:7px 13px;color:#888;font-size:12px;margin-bottom:25px}
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8b5cf6;box-shadow:0 0 12px #8b5cf6;margin-right:7px}
+h1{font-size:clamp(55px,10vw,110px);letter-spacing:-6px;line-height:.9;margin-bottom:25px}h1 span{color:#505057}
+.desc{max-width:600px;margin:auto;color:#777;font-size:15px}.buttons,.socials{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}
+.social{padding:9px 15px;border:1px solid #ffffff10;border-radius:10px;color:#777;font-size:12px}.social:hover{color:#fff}
+section{max-width:1180px;margin:auto;padding:90px 20px}.label{color:#777;text-transform:uppercase;letter-spacing:3px;font-size:10px}.title{font-size:clamp(32px,5vw,52px);letter-spacing:-2px;margin:10px 0}.sdesc{max-width:600px;color:#777;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}.card{min-height:185px;padding:26px;border:1px solid #ffffff0d;border-radius:17px;background:#ffffff06}.card:hover{background:#ffffff0a}.ico{width:40px;height:40px;display:grid;place-items:center;background:#ffffff09;border-radius:11px;margin-bottom:20px}.card h3{margin-bottom:8px}.card p{font-size:13px;color:#777}
+.preview{height:570px;margin-top:40px;border-radius:20px;border:1px solid #ffffff12;position:relative;overflow:hidden;background:linear-gradient(#71849a 0 42%,#39543d 43% 100%);box-shadow:0 35px 90px #0008}
+.preview:after{content:"";position:absolute;inset:42% 0 0;background:linear-gradient(150deg,transparent 25%,#102018dd 60%,#07100be8)}
+.watermark,.panel{position:absolute;z-index:2;background:#0f0f12a8;backdrop-filter:blur(9px);border:1px solid #ffffff18;border-radius:9px;color:#aaa;font-size:10px}.watermark{top:15px;left:15px;padding:6px 10px;display:flex;gap:8px;align-items:center}.fv{font-weight:900;color:#fff}.sep{width:1px;height:12px;background:#ffffff30}
+.panel{right:18px;padding:11px}.armor{top:18px;width:235px}.points{top:105px;width:235px}.inventory{top:200px;width:235px}.pt{font-size:10px;text-transform:uppercase;color:#888;letter-spacing:1px;margin-bottom:7px}.row{display:flex;justify-content:space-between;font-size:10px;padding:3px 0}
+.inv{display:grid;grid-template-columns:repeat(9,1fr);gap:3px}.slot{aspect-ratio:1;background:#0005;border:1px solid #ffffff15;border-radius:3px;display:grid;place-items:center;position:relative}.count{position:absolute;right:2px;bottom:0;font-size:8px;text-shadow:1px 1px 2px #000}
+.status{position:absolute;z-index:2;left:18px;bottom:20px;color:#bbb;font-size:10px;line-height:1.8}.hotbar{position:absolute;z-index:3;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:3px;padding:4px;background:#0007;border:1px solid #ffffff12;border-radius:7px}.slotbar{width:36px;height:36px;border:1px solid #ffffff14;background:#ffffff08;border-radius:4px;display:grid;place-items:center}.active{border-color:#fff8}
+.download{margin-top:35px;padding:30px;border:1px solid #ffffff0d;border-radius:18px;background:linear-gradient(135deg,#7c3aed18,#ffffff05);display:flex;justify-content:space-between;align-items:center;gap:20px}.download p{color:#777;font-size:13px}.tags{display:flex;gap:6px;margin-top:12px}.tag{font-size:10px;color:#888;padding:5px 8px;border:1px solid #ffffff0d;border-radius:6px}
+.faq{margin-top:35px;display:grid;gap:8px}.item{border:1px solid #ffffff0d;border-radius:12px;overflow:hidden;background:#ffffff04}.q{width:100%;padding:18px;background:none;border:0;color:#fff;text-align:left;display:flex;justify-content:space-between;cursor:pointer}.ans{max-height:0;overflow:hidden;color:#777;font-size:13px;transition:.25s}.ans div{padding:0 18px 18px}
+footer{max-width:1180px;margin:auto;padding:35px 20px 50px;border-top:1px solid #ffffff0b;color:#444;font-size:11px;display:flex;justify-content:space-between}
+@media(max-width:800px){.links{display:none}.grid{grid-template-columns:1fr}.download{flex-direction:column;align-items:flex-start}.preview{height:500px}.panel{transform:scale(.72);transform-origin:top right}.watermark{transform:scale(.8);transform-origin:top left}.hotbar{transform:translateX(-50%) scale(.72)}footer{flex-direction:column;gap:10px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="navin"><a class="logo" href="#">FANTA <span>VISUAL</span></a><div class="links"><a href="#features">Функции</a><a href="#preview">HUD</a><a href="#download">Скачать</a><a href="#faq">FAQ</a><a class="btn primary" href="#download">Скачать</a></div></div></nav>
+
+<header class="hero"><div>
+<div class="badge"><span class="dot"></span>Minecraft Edition</div>
+<h1>FANTA <span>VISUAL</span></h1>
+<p class="desc">Минималистичный визуальный клиент для Minecraft. Watermark, Armor HUD, Points, Inventory и другие элементы в одном стиле.</p>
+<div class="buttons"><a class="btn primary" href="#download">↓ Скачать</a><a class="btn" href="#preview">Посмотреть HUD</a></div>
+<div class="socials"><a class="social" href="https://t.me/Fantavisual" target="_blank">✈ Telegram</a><a class="social" href="https://discord.gg/yGeadGjQ7" target="_blank">◉ Discord</a><a class="social" href="https://www.tiktok.com/@fantanio4ik" target="_blank">♪ TikTok</a></div>
+</div></header>
+
+<section id="features"><div class="label">Features</div><h2 class="title">Всё необходимое.</h2><p class="sdesc">Компактный HUD показывает важную информацию и не мешает игре.</p>
+<div class="grid">
+<div class="card"><div class="ico">FV</div><h3>Watermark</h3><p>Ник, FPS, координаты и Ping в компактном полупрозрачном блоке.</p></div>
+<div class="card"><div class="ico">🛡</div><h3>Armor HUD</h3><p>Экипировка и прочность прямо во время игры.</p></div>
+<div class="card"><div class="ico">✦</div><h3>Points</h3><p>Активные эффекты и оставшееся время.</p></div>
+<div class="card"><div class="ico">▦</div><h3>Inventory</h3><p>Просмотр инвентаря без открытия меню.</p></div>
+<div class="card"><div class="ico">◈</div><h3>Minimal UI</h3><p>Прозрачные панели и минимум визуального шума.</p></div>
+<div class="card"><div class="ico">⚙</div><h3>Настройка</h3><p>Размер, положение и отображение элементов HUD.</p></div>
+</div></section>
+
+<section id="preview"><div class="label">HUD Preview</div><h2 class="title">F4 в игре.</h2><p class="sdesc">Пример интерфейса FANTA VISUAL.</p>
+<div class="preview">
+<div class="watermark"><span class="fv">FV</span><span class="sep"></span><span>fantanio4ik</span><span class="sep"></span><span>FPS: <b>144</b></span><span class="sep"></span><span>X: <b>123</b> Y: <b>64</b> Z: <b>-256</b></span><span class="sep"></span><span>Ping: <b>32ms</b></span></div>
+<div class="panel armor"><div class="pt">Point Armor</div><div class="row"><span>⛑100%</span><span>🛡100%</span><span>◇79%</span><span>♜100%</span></div></div>
+<div class="panel points"><div class="pt">Points</div><div class="row"><span>✦ Speed II</span><span>0:45</span></div><div class="row"><span>◆ Strength</span><span>1:20</span></div></div>
+<div class="panel inventory"><div class="pt">Inventory</div><div class="inv">
+<div class="slot">⚔</div><div class="slot">🏹</div><div class="slot">⛏</div><div class="slot">🍎<span class="count">8</span></div><div class="slot">🪨<span class="count">64</span></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot">🥖<span class="count">23</span></div>
+<div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+<div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+</div></div>
+<div class="status">🛡 39%<br>🛡 100%<br>◇ 79%<br>👢 0%<br>🥕 144<br>Totem 5</div>
+<div class="hotbar"><div class="slotbar active">⚔</div><div class="slotbar">🏹</div><div class="slotbar">⛏</div><div class="slotbar">🍎</div><div class="slotbar">🪨</div><div class="slotbar"></div><div class="slotbar"></div><div class="slotbar"></div><div class="slotbar">🥖</div></div>
+</div></section>
+
+<section id="download"><div class="label">Download</div><h2 class="title">Готов попробовать?</h2><p class="sdesc">Сюда позже можно поставить настоящую ссылку на .jar.</p><div class="download"><div><h3>FANTA VISUAL</h3><p>Minecraft Edition</p><div class="tags"><span class="tag">Minecraft</span><span class="tag">HUD</span><span class="tag">Minimal</span></div></div><a class="btn primary" href="#" onclick="alert('Ссылка на .jar пока не добавлена');return false">↓ Скачать</a></div></section>
+
+<section id="faq"><div class="label">FAQ</div><h2 class="title">Частые вопросы.</h2><div class="faq">
+<div class="item"><button class="q">Что такое FANTA VISUAL?<span>+</span></button><div class="ans"><div>Визуальный проект для Minecraft с кастомным HUD, Watermark, Armor, Points и Inventory.</div></div></div>
+<div class="item"><button class="q">Будут ли данные HUD реальными?<span>+</span></button><div class="ans"><div>В Minecraft-моде данные будут получаться непосредственно из клиента Minecraft.</div></div></div>
+<div class="item"><button class="q">Можно ли настроить HUD?<span>+</span></button><div class="ans"><div>Да: размер, положение, прозрачность и отдельные элементы можно добавить в настройки.</div></div></div>
+</div></section>
+
+<footer><span>FANTA VISUAL © 2026</span><span>Неофициальный проект для Minecraft</span></footer>
+<script>
+document.querySelectorAll('.q').forEach(q=>q.onclick=()=>{let a=q.nextElementSibling,open=a.style.maxHeight;document.querySelectorAll('.ans').forEach(x=>x.style.maxHeight=null);document.querySelectorAll('.q span').forEach(x=>x.textContent='+');if(!open){a.style.maxHeight=a.scrollHeight+'px';q.querySelector('span').textContent='−'}});
+</script>
+</body>
+</html>
